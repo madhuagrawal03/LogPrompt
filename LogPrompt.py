@@ -20,7 +20,7 @@ os.environ["OPENAI_API_KEY"] = "" # Use your key here
 #keys for each service.
 azure_credential = DefaultAzureCredential()
 
-dbconnection = pyodbc.connect("Driver={ODBC Driver 18 for SQL Server};Server=tcp:msdecisiondbserverdev.database.windows.net,1433;Database=msdecisiondb;Uid=msdecisiondb;Pwd=Msd$2022;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
+dbconnection = pyodbc.connect("")
 # query = "SELECT * FROM [dbo].[DownloadURIDaily]"
 query = "SELECT top 500 * FROM [dbo].[DimDownlod]"
 df = pd.read_sql(query, dbconnection)

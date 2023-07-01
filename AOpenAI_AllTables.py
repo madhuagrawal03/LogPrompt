@@ -5,15 +5,16 @@ import warnings
 from langchain.agents import create_sql_agent
 from langchain.agents.agent_toolkits import SQLDatabaseToolkit
 from langchain.sql_database import SQLDatabase
-from langchain.llms import OpenAI
+from langchain.llms import AzureOpenAI
 
 warnings.filterwarnings('ignore')
 
-# Replace these with your own values, either in environment variables or directly here
-AZURE_OPENAI_GPT_DEPLOYMENT = os.environ.get("AZURE_OPENAI_GPT_DEPLOYMENT") or "ada"  # davinci - throttled
-AZURE_OPENAI_CHATGPT_DEPLOYMENT = os.environ.get("AZURE_OPENAI_CHATGPT_DEPLOYMENT") or "chat"
+os.environ["OPENAI_API_TYPE"] = "azure"
+os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_BASE"] = "https://madhuopenai98.openai.azure.com/"
+os.environ["OPENAI_API_VERSION"] = "2022-12-01"
 
-os.environ["OPENAI_API_KEY"] = "" # Use your key here
+llm = AzureOpenAI(deployment_name="madhudavinci", model_name="text-davinci-003") 
 
 def db_instance():
     #Creating SQLAlchemy connection sting
@@ -24,8 +25,6 @@ def db_instance():
 
 db = db_instance()
 
-llm = OpenAI(temperature=0) # replace with your details
-
 # LangChain Agent
 toolkit = SQLDatabaseToolkit(db=db, llm = llm)
 
@@ -35,8 +34,6 @@ agent_executor = create_sql_agent(
     verbose=True,
     top_k = 5
 )
-
-# Test
 
 #scenario 1
 agent_executor.run('use this Instructions : 1. partitionKey in CatalogLocalized data is combination of updateId and RevisionNumber with dot as delimiter. 2. partitionKey in CatalogMetadata is updateid. query : Get localized data for latest revision of update id 00039324-5cea-4ae7-90d7-be154946529a')
