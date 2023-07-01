@@ -5,7 +5,7 @@ import requests
 cluster = "https://madhucluster98.eastus.kusto.windows.net"
 authority = "d4e63520-bb93-45af-9800-ec723d6c5c1f"
 app_id = "69ed328a-5603-4cc4-8782-5b44b6e071c2"
-app_key = "JjV8Q~mxQV4zCdr4eaDpXlxupLYzLSRLZ2c1~apv"
+app_key = ""
 kusto_database = "TestDB"
 
 # Construct the connection string
@@ -17,7 +17,7 @@ connection_string = KustoConnectionStringBuilder.with_aad_application_key_authen
 )
 
 kusto_client = KustoClient(connection_string)
-subscription_key = "06b31ed1ea0f4db082399e37ad428063"
+subscription_key = ""
 endpoint = "https://madhuopenai98.openai.azure.com/"
 
 headers = {
