@@ -10,7 +10,7 @@ from langchain.llms import AzureOpenAI
 warnings.filterwarnings('ignore')
 
 os.environ["OPENAI_API_TYPE"] = "azure"
-os.environ["OPENAI_API_KEY"] = "06b31ed1ea0f4db082399e37ad428063"
+os.environ["OPENAI_API_KEY"] = ""
 os.environ["OPENAI_API_BASE"] = "https://madhuopenai98.openai.azure.com/"
 os.environ["OPENAI_API_VERSION"] = "2022-12-01"
 
@@ -18,7 +18,7 @@ llm = AzureOpenAI(deployment_name="madhudavinci", model_name="text-davinci-003")
 
 def db_instance():
     #Creating SQLAlchemy connection sting
-    params = urllib.parse.quote_plus('Driver={ODBC Driver 18 for SQL Server};Server=tcp:msdecisiondbserverdev.database.windows.net,1433;Database=fhl;Uid=msdecisiondb;Pwd=Msd$2022;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;')
+    params = urllib.parse.quote_plus('')
     conn_str = 'mssql+pyodbc:///?odbc_connect={}'.format(params)
     db_instance = SQLDatabase.from_uri(conn_str)
     return db_instance

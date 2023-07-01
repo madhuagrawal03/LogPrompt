@@ -11,7 +11,7 @@ from langchain.llms import AzureOpenAI
 
 warnings.filterwarnings('ignore')
 
-dbconnection = pyodbc.connect("Driver={ODBC Driver 18 for SQL Server};Server=tcp:msdecisiondbserverdev.database.windows.net,1433;Database=msdecisiondb;Uid=msdecisiondb;Pwd=Msd$2022;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
+dbconnection = pyodbc.connect("")
 # query = "SELECT * FROM [dbo].[DownloadURIDaily]"
 query = "SELECT top 100 * FROM [dbo].[DimDownlod]"
 df = pd.read_sql(query, dbconnection)
@@ -19,7 +19,7 @@ df = pd.read_sql(query, dbconnection)
 
 
 os.environ["OPENAI_API_TYPE"] = "azure"
-os.environ["OPENAI_API_KEY"] = "06b31ed1ea0f4db082399e37ad428063"
+os.environ["OPENAI_API_KEY"] = ""
 os.environ["OPENAI_API_BASE"] = "https://madhuopenai98.openai.azure.com/"
 os.environ["OPENAI_API_VERSION"] = "2022-12-01"
 

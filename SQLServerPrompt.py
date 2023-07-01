@@ -13,11 +13,11 @@ warnings.filterwarnings('ignore')
 AZURE_OPENAI_GPT_DEPLOYMENT = os.environ.get("AZURE_OPENAI_GPT_DEPLOYMENT") or "ada"  # davinci - throttled
 AZURE_OPENAI_CHATGPT_DEPLOYMENT = os.environ.get("AZURE_OPENAI_CHATGPT_DEPLOYMENT") or "chat"
 
-os.environ["OPENAI_API_KEY"] = "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" # Use your key here
+os.environ["OPENAI_API_KEY"] = "" # Use your key here
 
 def db_instance():
     #Creating SQLAlchemy connection sting
-    params = urllib.parse.quote_plus('Driver={ODBC Driver 18 for SQL Server};Server=tcp:msdecisiondbserverdev.database.windows.net,1433;Database=fhl;Uid=msdecisiondb;Pwd=Msd$2022;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;')
+    params = urllib.parse.quote_plus('')
     conn_str = 'mssql+pyodbc:///?odbc_connect={}'.format(params)
     db_instance = SQLDatabase.from_uri(conn_str)
     return db_instance

@@ -5,12 +5,12 @@ from azure.core.credentials import AzureKeyCredential
 import pandas as pd
 
 account_name = 'madhumlws981768029566'
-account_key = '4vd+ucylSX+BIJs3O6/3DtDz4JOS9JlXp21yeFnNb7rX7i3vA4sQbmOI/PkaEgQMlfK+ZyvJ1+BH+AStZQJGhA=='
+account_key = ''
 table_name = 'TestTextAnalytics'
 table_service = TableService(account_name=account_name, account_key=account_key)
 
 endpoint = 'https://madhutest.cognitiveservices.azure.com/'
-key = 'f10906976f9540db8144b60c999e6eb9'
+key = ''
 credential = AzureKeyCredential(key)
 text_analytics_client = TextAnalyticsClient(endpoint=endpoint, credential=credential)
 
